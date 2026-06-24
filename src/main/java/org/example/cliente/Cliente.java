@@ -32,25 +32,7 @@ public class Cliente {
             PrintWriter saida =
                     new PrintWriter(socket.getOutputStream(), true);
 
-            // Thread para receber mensagens
-            Thread receberMensagens = new Thread(() -> {
-
-                try {
-                    String mensagem;
-
-                    while ((mensagem = entrada.readLine()) != null) {
-
-                        System.out.print("\r");
-                        System.out.println(mensagem);
-                        System.out.print("> ");
-                    }
-
-                } catch (IOException e) {
-                    System.out.println("\nConexão encerrada.");
-                }
-            });
-
-            receberMensagens.setDaemon(true);
+            Thread receberMensagens = getThread(entrada);
             receberMensagens.start();
 
             String texto;
@@ -75,5 +57,27 @@ public class Cliente {
         } catch (IOException e) {
             System.out.println("Erro ao conectar no servidor.");
         }
+    }
+
+    private static Thread getThread(BufferedReader entrada) {
+        Thread receberMensagens = new Thread(() -> {
+
+            try {
+                String mensagem;
+
+                while ((mensagem = entrada.readLine()) != null) {
+
+                    System.out.print("\r");
+                    System.out.println(mensagem);
+                    System.out.print("> ");
+                }
+
+            } catch (IOException e) {
+                System.out.println("\nConexão encerrada.");
+            }
+        });
+
+        receberMensagens.setDaemon(true);
+        return receberMensagens;
     }
 }

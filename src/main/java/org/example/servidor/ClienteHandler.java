@@ -8,7 +8,7 @@ import java.net.Socket;
 
 public class ClienteHandler extends Thread {
 
-    private Socket socket;
+    private final Socket socket;
     private BufferedReader entrada;
     private PrintWriter saida;
     private String nome;
