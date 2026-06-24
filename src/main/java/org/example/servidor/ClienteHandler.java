@@ -45,7 +45,7 @@ public class ClienteHandler extends Thread {
             saida.println("Digite seu nome:");
             nome = entrada.readLine();
 
-            Servidor.broadcast(this, nome + " entrou no chat.");
+            Servidor.broadcastSistema(nome + " entrou no chat.");
 
             String mensagem;
 
@@ -63,7 +63,7 @@ public class ClienteHandler extends Thread {
         } finally {
 
             Servidor.removerCliente(this);
-            Servidor.broadcast(this, nome + " saiu do chat.");
+            Servidor.broadcastSistema(nome + " saiu do chat.");
 
             try {
                 socket.close();

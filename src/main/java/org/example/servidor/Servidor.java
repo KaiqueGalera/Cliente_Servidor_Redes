@@ -42,10 +42,13 @@ public class Servidor {
         for (ClienteHandler cliente : clientes) {
 
             if (cliente == remetente) {
+
                 cliente.enviarMensagem(
                         "[" + horario + "] Você: " + mensagem
                 );
+
             } else {
+
                 cliente.enviarMensagem(
                         "[" + horario + "] "
                                 + remetente.getNome()
@@ -56,6 +59,21 @@ public class Servidor {
         }
     }
 
+    public static void broadcastSistema(String mensagem) {
+
+        String horario = java.time.LocalTime.now()
+                .withNano(0)
+                .toString();
+
+        for (ClienteHandler cliente : clientes) {
+
+            cliente.enviarMensagem(
+                    "[" + horario + "] " + mensagem
+            );
+        }
+    }
+
+    // Remove cliente da lista
     public static void removerCliente(ClienteHandler cliente) {
         clientes.remove(cliente);
     }
