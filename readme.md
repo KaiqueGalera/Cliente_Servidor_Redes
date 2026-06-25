@@ -1,5 +1,9 @@
 Projeto desenvolvido para a disciplina de **Redes de Computadores**, com o objetivo de demonstrar a comunicação entre processos utilizando **Sockets TCP** em Java.
 
+
+##  Vídeo
+
+https://www.youtube.com/watch?v=mP1AABQ7fbc
 ---
 
 ##  Descrição
@@ -88,14 +92,17 @@ Você pode abrir **várias instâncias do cliente** para simular múltiplos usu�
 
 ---
 
-##  Exemplo de uso
 
+##  Exemplo de uso
 
 Servidor iniciado na porta 5000
 Novo cliente conectado.
 
 Digite seu nome:
 Gabriel
+Kaique
+Pedro
+Guilherme
 
 [14:32:10] Você: Olá pessoal
 [14:32:12] Pedro: Oi Gabriel
